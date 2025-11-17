@@ -16,6 +16,7 @@ class Member
     {
         $this->memberID = self::$memberIdCounter++;
         $this->name = $name;
+        Library::$members [] = $this;
     }
     //Methods
     #A function for members to borrow a book using an inputfield obkect book. 
@@ -46,28 +47,28 @@ class Member
         }
     }
     #to fetch member name
-    public function getName(): string
+    public function getmemberName(): string
     {
         return $this->name;
     }
     #fetch list of books borrowed by this member. Array of books (Book Names) not Objects.
     public function getBorrowedBooks(): array
     {
-        $bookNames = [];
+        $bookTitles = [];
         foreach ($this->borrowedBooks as $key => $value) {
-            $bookNames[] = $value->getBookName();
+            $bookTitles[] = $value->getbookTitle();
         }
-        return $bookNames;
+        return $bookTitles;
     }
     # Information about this user, including the books he is currently holding. 
     public function getInfo(): string
     {
-        $bookNames = [];
+        $bookTitles = [];
         if (!empty($this->borrowedBooks)) {
             foreach ($this->borrowedBooks as $key => $value) {
-                $bookNames[] = $value->getBookName();
+                $bookTitles[] = $value->getbookTitle();
             }
         }
-        return $this->memberID . "<br>" . $this->name . "<br>" .  implode("<br>", $bookNames);
+        return $this->memberID . "<br>" . $this->name . "<br>" .  implode("<br>", $bookTitles);
     }
 }

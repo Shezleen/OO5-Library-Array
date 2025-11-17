@@ -20,6 +20,7 @@ class Book
         $this->title = $title;
         $this->author = $author;
         $this->bookStatus = $bookStatus;
+        Library::addBook($this);
     }
 
     //set Methods
@@ -55,7 +56,7 @@ class Book
         return $this->bookStatus->value;
     }
     #fetch book name. 
-    public function getBookName(): string
+    public function getbookTitle(): string
     {
         return $this->title;
     }

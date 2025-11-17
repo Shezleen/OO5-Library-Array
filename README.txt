@@ -29,7 +29,7 @@ getName(): string
 getBorrowedBooks(): array
 getInfo(): string (returns summary text for testing)
 
-✅ Restructured Requirements for Library.php (Based on Your Final Book + Member + Enum)
+✅ Requirements for Library.php 
 📌 1. Static Properties
 The Library is a global manager. It must hold:
 Static arrays:

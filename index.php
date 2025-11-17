@@ -2,6 +2,9 @@
 
 include 'classes/Book.php';
 include 'classes/Member.php';
+include 'classes/Library.php';
+
+$library1 = new Library("Berlin");
 
 $books = [
     $book1 = new Book("1984", "George Orwell"),
@@ -27,13 +30,20 @@ $members = [
     $member10 = new Member("James Anderson")
 ];
 
-$member2->borrowBook($book5);
+$member2->borrowBook($book1);
+$member2->borrowBook($book2);
 $member2->borrowBook($book3);
-$member2->borrowBook($book4);
+$library1->borrowBook("Bob Smith", "To Kill a Mockingbird");
 
-#$member2->returnBook($book5);
+
 
 
 echo "<pre>";
-print_r($member2->getBorrowedBooks());
+#print_r($member2->getBorrowedBooks());
+echo "<br>";
+#print_r();
+echo "<br>";
+#print_r($member2->getBorrowedBooks());
+echo "<br>";
+print_r($library1->listBooksByStatus());
 echo "<pre>";
